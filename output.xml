@@ -1,121 +1,489 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2 (Python 3.13.3 on win32)" generated="2025-04-28T16:30:06.725297" rpa="false" schemaversion="5">
-<suite id="s1" name="Falhas Previstas" source="c:\automation\robot_avancado\tests\falhas_previstas.robot">
-<test id="s1-t1" name="Exemplo 01: Teste lidando com falhas previstas" line="3">
-<kw name="Essa keyword vai falhar, mas vou ignorar (a suíte irá passar)!">
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Should Be True" owner="BuiltIn">
-<msg time="2025-04-28T16:30:06.783490" level="FAIL">'"May" == "João"' should be true.</msg>
-<arg>"May" == "João"</arg>
-<doc>Fails if the given condition is not true.</doc>
-<status status="FAIL" start="2025-04-28T16:30:06.783141" elapsed="0.003426">'"May" == "João"' should be true.</status>
+<robot generator="Robot 7.2 (Python 3.13.3 on win32)" generated="2025-04-28T16:50:04.666086" rpa="false" schemaversion="5">
+<suite id="s1" name="Esperas" source="c:\automation\robot_avancado\tests\esperas.robot">
+<test id="s1-t1" name="Exemplo 02: Teste de espera" line="12">
+<kw name="Esperar uma keyword obter sucesso!">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Essa keyword só passa se estivermos no segundo 15!">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-04-28T16:50:04.720679" level="INFO">${HORA_ATUAL} = 2025-04-28 16:50:04.720</msg>
+<var>${HORA_ATUAL}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-04-28T16:50:04.719792" elapsed="0.004276"/>
 </kw>
-<arg>Should Be True</arg>
-<arg>"May" == "João"</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-04-28T16:30:06.782778" elapsed="0.004760"/>
+<kw name="Convert Date" owner="DateTime">
+<msg time="2025-04-28T16:50:04.744253" level="INFO">${HORA_ATUAL} = 2025-04-28 16:50:04.720000</msg>
+<var>${HORA_ATUAL}</var>
+<arg>${HORA_ATUAL}</arg>
+<arg>datetime</arg>
+<doc>Converts between supported `date formats`.</doc>
+<status status="PASS" start="2025-04-28T16:50:04.724624" elapsed="0.020134"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-04-28T16:30:06.788917" level="INFO">Continuo a execução!!</msg>
-<arg>Continuo a execução!!</arg>
+<msg time="2025-04-28T16:50:04.748787" level="INFO">Hora atual: 16
+Minuto atual: 50
+Segundo atual: 4</msg>
+<arg>Hora atual: ${HORA_ATUAL.hour}\nMinuto atual: ${HORA_ATUAL.minute}\nSegundo atual: ${HORA_ATUAL.second}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-28T16:30:06.788243" elapsed="0.003602"/>
+<status status="PASS" start="2025-04-28T16:50:04.745268" elapsed="0.003935"/>
 </kw>
-<status status="PASS" start="2025-04-28T16:30:06.781884" elapsed="0.010333"/>
-</kw>
-<kw name="Essa keyword encerra a execução da suíte!">
 <kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${STOP}"=="Para tudo!"</arg>
-<arg>Fatal Error</arg>
-<arg>msg=Para tudo, não adianta continuar com essa falha aqui!!!</arg>
+<kw name="Fail" owner="BuiltIn">
+<msg time="2025-04-28T16:50:04.752493" level="FAIL">Ainda não estamos no segundo 15!!</msg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="FAIL" start="2025-04-28T16:50:04.751028" elapsed="0.003670">Ainda não estamos no segundo 15!!</status>
+</kw>
+<arg>"${HORA_ATUAL.second}"!="15"</arg>
+<arg>Fail</arg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-04-28T16:30:06.793619" elapsed="0.000352"/>
+<status status="FAIL" start="2025-04-28T16:50:04.749598" elapsed="0.005411">Ainda não estamos no segundo 15!!</status>
 </kw>
-<arg>Não pare, por favor!</arg>
-<status status="PASS" start="2025-04-28T16:30:06.792984" elapsed="0.001273"/>
+<status status="FAIL" start="2025-04-28T16:50:04.719333" elapsed="0.035925">Ainda não estamos no segundo 15!!</status>
 </kw>
-<kw name="Essa keyword vai falhar, mas é uma falha que deve acontecer para meu teste ser considerado OK!">
-<kw name="Run Keyword And Expect Error" owner="BuiltIn">
-<kw name="Should Be True" owner="BuiltIn">
-<msg time="2025-04-28T16:30:06.796663" level="FAIL">'"May" == "João"' should be true.</msg>
-<arg>"May" == "João"</arg>
-<doc>Fails if the given condition is not true.</doc>
-<status status="FAIL" start="2025-04-28T16:30:06.796156" elapsed="0.000860">'"May" == "João"' should be true.</status>
+<kw name="Essa keyword só passa se estivermos no segundo 15!">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-04-28T16:50:05.758418" level="INFO">${HORA_ATUAL} = 2025-04-28 16:50:05.758</msg>
+<var>${HORA_ATUAL}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-04-28T16:50:05.757456" elapsed="0.001133"/>
 </kw>
-<arg>'"May" == "João"' should be true.</arg>
-<arg>Should Be True</arg>
-<arg>"May" == "João"</arg>
-<doc>Runs the keyword and checks that the expected error occurred.</doc>
-<status status="PASS" start="2025-04-28T16:30:06.795653" elapsed="0.001804"/>
-</kw>
-<status status="PASS" start="2025-04-28T16:30:06.794909" elapsed="0.002715"/>
-</kw>
-<kw name="Essa keyword vai falhar, não vou ignorar (a suíte irá falhar), mas vou continuar a execução!">
-<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
-<kw name="Should Be True" owner="BuiltIn">
-<msg time="2025-04-28T16:30:06.799901" level="FAIL">'"May" == "João"' should be true.</msg>
-<arg>"May" == "João"</arg>
-<doc>Fails if the given condition is not true.</doc>
-<status status="FAIL" start="2025-04-28T16:30:06.799413" elapsed="0.000778">'"May" == "João"' should be true.</status>
-</kw>
-<arg>Should Be True</arg>
-<arg>"May" == "João"</arg>
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<status status="FAIL" start="2025-04-28T16:30:06.799009" elapsed="0.001517">'"May" == "João"' should be true.</status>
+<kw name="Convert Date" owner="DateTime">
+<msg time="2025-04-28T16:50:05.760258" level="INFO">${HORA_ATUAL} = 2025-04-28 16:50:05.758000</msg>
+<var>${HORA_ATUAL}</var>
+<arg>${HORA_ATUAL}</arg>
+<arg>datetime</arg>
+<doc>Converts between supported `date formats`.</doc>
+<status status="PASS" start="2025-04-28T16:50:05.758846" elapsed="0.001660"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-04-28T16:30:06.801238" level="INFO">Continuo a execução 1!!</msg>
-<arg>Continuo a execução 1!!</arg>
+<msg time="2025-04-28T16:50:05.762726" level="INFO">Hora atual: 16
+Minuto atual: 50
+Segundo atual: 5</msg>
+<arg>Hora atual: ${HORA_ATUAL.hour}\nMinuto atual: ${HORA_ATUAL.minute}\nSegundo atual: ${HORA_ATUAL.second}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-28T16:30:06.800844" elapsed="0.000701"/>
+<status status="PASS" start="2025-04-28T16:50:05.760923" elapsed="0.002336"/>
 </kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-04-28T16:30:06.801985" level="INFO">Continuo a execução 2!!</msg>
-<arg>Continuo a execução 2!!</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-28T16:30:06.801774" elapsed="0.000497"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-04-28T16:30:06.803790" level="INFO">Continuo a execução 3!!</msg>
-<arg>Continuo a execução 3!!</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-28T16:30:06.802834" elapsed="0.001970"/>
-</kw>
-<status status="FAIL" start="2025-04-28T16:30:06.798364" elapsed="0.007055">'"May" == "João"' should be true.</status>
-</kw>
-<kw name="Essa keyword encerra a execução da suíte!">
 <kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Fatal Error" owner="BuiltIn">
-<msg time="2025-04-28T16:30:06.809572" level="FAIL">Para tudo, não adianta continuar com essa falha aqui!!!</msg>
-<arg>msg=Para tudo, não adianta continuar com essa falha aqui!!!</arg>
-<doc>Stops the whole test execution.</doc>
-<status status="FAIL" start="2025-04-28T16:30:06.809034" elapsed="0.002073">Para tudo, não adianta continuar com essa falha aqui!!!</status>
+<kw name="Fail" owner="BuiltIn">
+<msg time="2025-04-28T16:50:05.772800" level="FAIL">Ainda não estamos no segundo 15!!</msg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="FAIL" start="2025-04-28T16:50:05.766283" elapsed="0.007027">Ainda não estamos no segundo 15!!</status>
 </kw>
-<arg>"${STOP}"=="Para tudo!"</arg>
-<arg>Fatal Error</arg>
-<arg>msg=Para tudo, não adianta continuar com essa falha aqui!!!</arg>
+<arg>"${HORA_ATUAL.second}"!="15"</arg>
+<arg>Fail</arg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="FAIL" start="2025-04-28T16:30:06.808358" elapsed="0.002980">Para tudo, não adianta continuar com essa falha aqui!!!</status>
+<status status="FAIL" start="2025-04-28T16:50:05.763771" elapsed="0.009811">Ainda não estamos no segundo 15!!</status>
 </kw>
-<arg>Para tudo!</arg>
-<status status="FAIL" start="2025-04-28T16:30:06.807563" elapsed="0.004029">Para tudo, não adianta continuar com essa falha aqui!!!</status>
+<status status="FAIL" start="2025-04-28T16:50:05.756677" elapsed="0.017200">Ainda não estamos no segundo 15!!</status>
 </kw>
-<status status="FAIL" start="2025-04-28T16:30:06.780659" elapsed="0.031715">Several failures occurred:
-
-1) '"May" == "João"' should be true.
-
-2) Para tudo, não adianta continuar com essa falha aqui!!!</status>
+<kw name="Essa keyword só passa se estivermos no segundo 15!">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-04-28T16:50:06.775671" level="INFO">${HORA_ATUAL} = 2025-04-28 16:50:06.776</msg>
+<var>${HORA_ATUAL}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-04-28T16:50:06.774932" elapsed="0.000868"/>
+</kw>
+<kw name="Convert Date" owner="DateTime">
+<msg time="2025-04-28T16:50:06.776860" level="INFO">${HORA_ATUAL} = 2025-04-28 16:50:06.776000</msg>
+<var>${HORA_ATUAL}</var>
+<arg>${HORA_ATUAL}</arg>
+<arg>datetime</arg>
+<doc>Converts between supported `date formats`.</doc>
+<status status="PASS" start="2025-04-28T16:50:06.775975" elapsed="0.001026"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-28T16:50:06.778946" level="INFO">Hora atual: 16
+Minuto atual: 50
+Segundo atual: 6</msg>
+<arg>Hora atual: ${HORA_ATUAL.hour}\nMinuto atual: ${HORA_ATUAL.minute}\nSegundo atual: ${HORA_ATUAL.second}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-28T16:50:06.777211" elapsed="0.001985"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Fail" owner="BuiltIn">
+<msg time="2025-04-28T16:50:06.781921" level="FAIL">Ainda não estamos no segundo 15!!</msg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="FAIL" start="2025-04-28T16:50:06.780976" elapsed="0.001131">Ainda não estamos no segundo 15!!</status>
+</kw>
+<arg>"${HORA_ATUAL.second}"!="15"</arg>
+<arg>Fail</arg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2025-04-28T16:50:06.779582" elapsed="0.002652">Ainda não estamos no segundo 15!!</status>
+</kw>
+<status status="FAIL" start="2025-04-28T16:50:06.774533" elapsed="0.007867">Ainda não estamos no segundo 15!!</status>
+</kw>
+<kw name="Essa keyword só passa se estivermos no segundo 15!">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-04-28T16:50:07.784499" level="INFO">${HORA_ATUAL} = 2025-04-28 16:50:07.784</msg>
+<var>${HORA_ATUAL}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-04-28T16:50:07.783618" elapsed="0.001125"/>
+</kw>
+<kw name="Convert Date" owner="DateTime">
+<msg time="2025-04-28T16:50:07.786220" level="INFO">${HORA_ATUAL} = 2025-04-28 16:50:07.784000</msg>
+<var>${HORA_ATUAL}</var>
+<arg>${HORA_ATUAL}</arg>
+<arg>datetime</arg>
+<doc>Converts between supported `date formats`.</doc>
+<status status="PASS" start="2025-04-28T16:50:07.785061" elapsed="0.001486"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-28T16:50:07.788896" level="INFO">Hora atual: 16
+Minuto atual: 50
+Segundo atual: 7</msg>
+<arg>Hora atual: ${HORA_ATUAL.hour}\nMinuto atual: ${HORA_ATUAL.minute}\nSegundo atual: ${HORA_ATUAL.second}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-28T16:50:07.787013" elapsed="0.002256"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Fail" owner="BuiltIn">
+<msg time="2025-04-28T16:50:07.791677" level="FAIL">Ainda não estamos no segundo 15!!</msg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="FAIL" start="2025-04-28T16:50:07.790400" elapsed="0.001591">Ainda não estamos no segundo 15!!</status>
+</kw>
+<arg>"${HORA_ATUAL.second}"!="15"</arg>
+<arg>Fail</arg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2025-04-28T16:50:07.789539" elapsed="0.002681">Ainda não estamos no segundo 15!!</status>
+</kw>
+<status status="FAIL" start="2025-04-28T16:50:07.783204" elapsed="0.009873">Ainda não estamos no segundo 15!!</status>
+</kw>
+<kw name="Essa keyword só passa se estivermos no segundo 15!">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-04-28T16:50:08.798410" level="INFO">${HORA_ATUAL} = 2025-04-28 16:50:08.798</msg>
+<var>${HORA_ATUAL}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-04-28T16:50:08.795513" elapsed="0.003465"/>
+</kw>
+<kw name="Convert Date" owner="DateTime">
+<msg time="2025-04-28T16:50:08.800995" level="INFO">${HORA_ATUAL} = 2025-04-28 16:50:08.798000</msg>
+<var>${HORA_ATUAL}</var>
+<arg>${HORA_ATUAL}</arg>
+<arg>datetime</arg>
+<doc>Converts between supported `date formats`.</doc>
+<status status="PASS" start="2025-04-28T16:50:08.799291" elapsed="0.002009"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-28T16:50:08.804514" level="INFO">Hora atual: 16
+Minuto atual: 50
+Segundo atual: 8</msg>
+<arg>Hora atual: ${HORA_ATUAL.hour}\nMinuto atual: ${HORA_ATUAL.minute}\nSegundo atual: ${HORA_ATUAL.second}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-28T16:50:08.801772" elapsed="0.003228"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Fail" owner="BuiltIn">
+<msg time="2025-04-28T16:50:08.809281" level="FAIL">Ainda não estamos no segundo 15!!</msg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="FAIL" start="2025-04-28T16:50:08.807360" elapsed="0.002286">Ainda não estamos no segundo 15!!</status>
+</kw>
+<arg>"${HORA_ATUAL.second}"!="15"</arg>
+<arg>Fail</arg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2025-04-28T16:50:08.805525" elapsed="0.004419">Ainda não estamos no segundo 15!!</status>
+</kw>
+<status status="FAIL" start="2025-04-28T16:50:08.794658" elapsed="0.015715">Ainda não estamos no segundo 15!!</status>
+</kw>
+<kw name="Essa keyword só passa se estivermos no segundo 15!">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-04-28T16:50:09.812339" level="INFO">${HORA_ATUAL} = 2025-04-28 16:50:09.812</msg>
+<var>${HORA_ATUAL}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-04-28T16:50:09.811337" elapsed="0.001310"/>
+</kw>
+<kw name="Convert Date" owner="DateTime">
+<msg time="2025-04-28T16:50:09.814231" level="INFO">${HORA_ATUAL} = 2025-04-28 16:50:09.812000</msg>
+<var>${HORA_ATUAL}</var>
+<arg>${HORA_ATUAL}</arg>
+<arg>datetime</arg>
+<doc>Converts between supported `date formats`.</doc>
+<status status="PASS" start="2025-04-28T16:50:09.812988" elapsed="0.001465"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-28T16:50:09.816709" level="INFO">Hora atual: 16
+Minuto atual: 50
+Segundo atual: 9</msg>
+<arg>Hora atual: ${HORA_ATUAL.hour}\nMinuto atual: ${HORA_ATUAL.minute}\nSegundo atual: ${HORA_ATUAL.second}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-28T16:50:09.814803" elapsed="0.002190"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Fail" owner="BuiltIn">
+<msg time="2025-04-28T16:50:09.819387" level="FAIL">Ainda não estamos no segundo 15!!</msg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="FAIL" start="2025-04-28T16:50:09.818190" elapsed="0.001581">Ainda não estamos no segundo 15!!</status>
+</kw>
+<arg>"${HORA_ATUAL.second}"!="15"</arg>
+<arg>Fail</arg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2025-04-28T16:50:09.817249" elapsed="0.002800">Ainda não estamos no segundo 15!!</status>
+</kw>
+<status status="FAIL" start="2025-04-28T16:50:09.810935" elapsed="0.009534">Ainda não estamos no segundo 15!!</status>
+</kw>
+<kw name="Essa keyword só passa se estivermos no segundo 15!">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-04-28T16:50:10.823035" level="INFO">${HORA_ATUAL} = 2025-04-28 16:50:10.823</msg>
+<var>${HORA_ATUAL}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-04-28T16:50:10.822174" elapsed="0.001014"/>
+</kw>
+<kw name="Convert Date" owner="DateTime">
+<msg time="2025-04-28T16:50:10.824683" level="INFO">${HORA_ATUAL} = 2025-04-28 16:50:10.823000</msg>
+<var>${HORA_ATUAL}</var>
+<arg>${HORA_ATUAL}</arg>
+<arg>datetime</arg>
+<doc>Converts between supported `date formats`.</doc>
+<status status="PASS" start="2025-04-28T16:50:10.823372" elapsed="0.001493"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-28T16:50:10.827189" level="INFO">Hora atual: 16
+Minuto atual: 50
+Segundo atual: 10</msg>
+<arg>Hora atual: ${HORA_ATUAL.hour}\nMinuto atual: ${HORA_ATUAL.minute}\nSegundo atual: ${HORA_ATUAL.second}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-28T16:50:10.825208" elapsed="0.002350"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Fail" owner="BuiltIn">
+<msg time="2025-04-28T16:50:10.831090" level="FAIL">Ainda não estamos no segundo 15!!</msg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="FAIL" start="2025-04-28T16:50:10.829333" elapsed="0.001984">Ainda não estamos no segundo 15!!</status>
+</kw>
+<arg>"${HORA_ATUAL.second}"!="15"</arg>
+<arg>Fail</arg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2025-04-28T16:50:10.828122" elapsed="0.003333">Ainda não estamos no segundo 15!!</status>
+</kw>
+<status status="FAIL" start="2025-04-28T16:50:10.821748" elapsed="0.009933">Ainda não estamos no segundo 15!!</status>
+</kw>
+<kw name="Essa keyword só passa se estivermos no segundo 15!">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-04-28T16:50:11.833616" level="INFO">${HORA_ATUAL} = 2025-04-28 16:50:11.833</msg>
+<var>${HORA_ATUAL}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-04-28T16:50:11.832670" elapsed="0.001088"/>
+</kw>
+<kw name="Convert Date" owner="DateTime">
+<msg time="2025-04-28T16:50:11.835303" level="INFO">${HORA_ATUAL} = 2025-04-28 16:50:11.833000</msg>
+<var>${HORA_ATUAL}</var>
+<arg>${HORA_ATUAL}</arg>
+<arg>datetime</arg>
+<doc>Converts between supported `date formats`.</doc>
+<status status="PASS" start="2025-04-28T16:50:11.834029" elapsed="0.001514"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-28T16:50:11.838142" level="INFO">Hora atual: 16
+Minuto atual: 50
+Segundo atual: 11</msg>
+<arg>Hora atual: ${HORA_ATUAL.hour}\nMinuto atual: ${HORA_ATUAL.minute}\nSegundo atual: ${HORA_ATUAL.second}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-28T16:50:11.835855" elapsed="0.002629"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Fail" owner="BuiltIn">
+<msg time="2025-04-28T16:50:11.840834" level="FAIL">Ainda não estamos no segundo 15!!</msg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="FAIL" start="2025-04-28T16:50:11.839771" elapsed="0.001442">Ainda não estamos no segundo 15!!</status>
+</kw>
+<arg>"${HORA_ATUAL.second}"!="15"</arg>
+<arg>Fail</arg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2025-04-28T16:50:11.838801" elapsed="0.002661">Ainda não estamos no segundo 15!!</status>
+</kw>
+<status status="FAIL" start="2025-04-28T16:50:11.832271" elapsed="0.009804">Ainda não estamos no segundo 15!!</status>
+</kw>
+<kw name="Essa keyword só passa se estivermos no segundo 15!">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-04-28T16:50:12.844196" level="INFO">${HORA_ATUAL} = 2025-04-28 16:50:12.844</msg>
+<var>${HORA_ATUAL}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-04-28T16:50:12.843182" elapsed="0.001464"/>
+</kw>
+<kw name="Convert Date" owner="DateTime">
+<msg time="2025-04-28T16:50:12.846283" level="INFO">${HORA_ATUAL} = 2025-04-28 16:50:12.844000</msg>
+<var>${HORA_ATUAL}</var>
+<arg>${HORA_ATUAL}</arg>
+<arg>datetime</arg>
+<doc>Converts between supported `date formats`.</doc>
+<status status="PASS" start="2025-04-28T16:50:12.845064" elapsed="0.001402"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-28T16:50:12.848844" level="INFO">Hora atual: 16
+Minuto atual: 50
+Segundo atual: 12</msg>
+<arg>Hora atual: ${HORA_ATUAL.hour}\nMinuto atual: ${HORA_ATUAL.minute}\nSegundo atual: ${HORA_ATUAL.second}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-28T16:50:12.846740" elapsed="0.002443"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Fail" owner="BuiltIn">
+<msg time="2025-04-28T16:50:12.851669" level="FAIL">Ainda não estamos no segundo 15!!</msg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="FAIL" start="2025-04-28T16:50:12.850350" elapsed="0.001541">Ainda não estamos no segundo 15!!</status>
+</kw>
+<arg>"${HORA_ATUAL.second}"!="15"</arg>
+<arg>Fail</arg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2025-04-28T16:50:12.849447" elapsed="0.002616">Ainda não estamos no segundo 15!!</status>
+</kw>
+<status status="FAIL" start="2025-04-28T16:50:12.842766" elapsed="0.009539">Ainda não estamos no segundo 15!!</status>
+</kw>
+<kw name="Essa keyword só passa se estivermos no segundo 15!">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-04-28T16:50:13.854002" level="INFO">${HORA_ATUAL} = 2025-04-28 16:50:13.854</msg>
+<var>${HORA_ATUAL}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-04-28T16:50:13.853123" elapsed="0.001060"/>
+</kw>
+<kw name="Convert Date" owner="DateTime">
+<msg time="2025-04-28T16:50:13.855623" level="INFO">${HORA_ATUAL} = 2025-04-28 16:50:13.854000</msg>
+<var>${HORA_ATUAL}</var>
+<arg>${HORA_ATUAL}</arg>
+<arg>datetime</arg>
+<doc>Converts between supported `date formats`.</doc>
+<status status="PASS" start="2025-04-28T16:50:13.854395" elapsed="0.001405"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-28T16:50:13.858280" level="INFO">Hora atual: 16
+Minuto atual: 50
+Segundo atual: 13</msg>
+<arg>Hora atual: ${HORA_ATUAL.hour}\nMinuto atual: ${HORA_ATUAL.minute}\nSegundo atual: ${HORA_ATUAL.second}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-28T16:50:13.856058" elapsed="0.002539"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Fail" owner="BuiltIn">
+<msg time="2025-04-28T16:50:13.861490" level="FAIL">Ainda não estamos no segundo 15!!</msg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="FAIL" start="2025-04-28T16:50:13.860159" elapsed="0.001602">Ainda não estamos no segundo 15!!</status>
+</kw>
+<arg>"${HORA_ATUAL.second}"!="15"</arg>
+<arg>Fail</arg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2025-04-28T16:50:13.858937" elapsed="0.002976">Ainda não estamos no segundo 15!!</status>
+</kw>
+<status status="FAIL" start="2025-04-28T16:50:13.852727" elapsed="0.009444">Ainda não estamos no segundo 15!!</status>
+</kw>
+<kw name="Essa keyword só passa se estivermos no segundo 15!">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-04-28T16:50:14.864879" level="INFO">${HORA_ATUAL} = 2025-04-28 16:50:14.865</msg>
+<var>${HORA_ATUAL}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-04-28T16:50:14.863919" elapsed="0.001161"/>
+</kw>
+<kw name="Convert Date" owner="DateTime">
+<msg time="2025-04-28T16:50:14.866430" level="INFO">${HORA_ATUAL} = 2025-04-28 16:50:14.865000</msg>
+<var>${HORA_ATUAL}</var>
+<arg>${HORA_ATUAL}</arg>
+<arg>datetime</arg>
+<doc>Converts between supported `date formats`.</doc>
+<status status="PASS" start="2025-04-28T16:50:14.865248" elapsed="0.001390"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-28T16:50:14.900920" level="INFO">Hora atual: 16
+Minuto atual: 50
+Segundo atual: 14</msg>
+<arg>Hora atual: ${HORA_ATUAL.hour}\nMinuto atual: ${HORA_ATUAL.minute}\nSegundo atual: ${HORA_ATUAL.second}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-28T16:50:14.866915" elapsed="0.034376"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Fail" owner="BuiltIn">
+<msg time="2025-04-28T16:50:14.913202" level="FAIL">Ainda não estamos no segundo 15!!</msg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="FAIL" start="2025-04-28T16:50:14.902833" elapsed="0.010586">Ainda não estamos no segundo 15!!</status>
+</kw>
+<arg>"${HORA_ATUAL.second}"!="15"</arg>
+<arg>Fail</arg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2025-04-28T16:50:14.901660" elapsed="0.011905">Ainda não estamos no segundo 15!!</status>
+</kw>
+<status status="FAIL" start="2025-04-28T16:50:14.863522" elapsed="0.050254">Ainda não estamos no segundo 15!!</status>
+</kw>
+<kw name="Essa keyword só passa se estivermos no segundo 15!">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-04-28T16:50:15.915555" level="INFO">${HORA_ATUAL} = 2025-04-28 16:50:15.915</msg>
+<var>${HORA_ATUAL}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-04-28T16:50:15.914732" elapsed="0.001025"/>
+</kw>
+<kw name="Convert Date" owner="DateTime">
+<msg time="2025-04-28T16:50:15.917312" level="INFO">${HORA_ATUAL} = 2025-04-28 16:50:15.915000</msg>
+<var>${HORA_ATUAL}</var>
+<arg>${HORA_ATUAL}</arg>
+<arg>datetime</arg>
+<doc>Converts between supported `date formats`.</doc>
+<status status="PASS" start="2025-04-28T16:50:15.915984" elapsed="0.001521"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-28T16:50:15.920043" level="INFO">Hora atual: 16
+Minuto atual: 50
+Segundo atual: 15</msg>
+<arg>Hora atual: ${HORA_ATUAL.hour}\nMinuto atual: ${HORA_ATUAL.minute}\nSegundo atual: ${HORA_ATUAL.second}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-28T16:50:15.917820" elapsed="0.002664"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>"${HORA_ATUAL.second}"!="15"</arg>
+<arg>Fail</arg>
+<arg>msg=Ainda não estamos no segundo 15!!</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-28T16:50:15.920901" elapsed="0.000852"/>
+</kw>
+<status status="PASS" start="2025-04-28T16:50:15.914338" elapsed="0.007704"/>
+</kw>
+<arg>60x</arg>
+<arg>1 seconds</arg>
+<arg>Essa keyword só passa se estivermos no segundo 15!</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-04-28T16:50:04.718458" elapsed="11.203761"/>
+</kw>
+<status status="PASS" start="2025-04-28T16:50:04.717682" elapsed="11.205095"/>
+</kw>
+<kw name="Teardown do meu teste" type="TEARDOWN">
+<kw name="Run Keyword If Timeout Occurred" owner="BuiltIn">
+<arg>Log</arg>
+<arg>Esse teste demorou demais, possível problema de performance!</arg>
+<doc>Runs the given keyword if either a test or a keyword timeout has occurred.</doc>
+<status status="PASS" start="2025-04-28T16:50:15.924451" elapsed="0.000287"/>
+</kw>
+<status status="PASS" start="2025-04-28T16:50:15.923861" elapsed="0.001191"/>
+</kw>
+<timeout value="2 minutes"/>
+<status status="PASS" start="2025-04-28T16:50:04.716169" elapsed="11.209601"/>
 </test>
-<status status="FAIL" start="2025-04-28T16:30:06.734928" elapsed="0.081942"/>
+<status status="PASS" start="2025-04-28T16:50:04.677067" elapsed="11.251212"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Falhas Previstas" id="s1" pass="0" fail="1" skip="0">Falhas Previstas</stat>
+<stat name="Esperas" id="s1" pass="1" fail="0" skip="0">Esperas</stat>
 </suite>
 </statistics>
 <errors>
