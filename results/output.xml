@@ -1,67 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2 (Python 3.13.3 on win32)" generated="2025-04-28T16:01:16.254891" rpa="false" schemaversion="5">
+<robot generator="Robot 7.2 (Python 3.13.3 on win32)" generated="2025-04-28T16:30:08.344052" rpa="false" schemaversion="5">
 <suite id="s1" name="Robot Avancado" source="C:\automation\robot_avancado">
 <suite id="s1-s1" name="Tests" source="C:\automation\robot_avancado\tests">
-<suite id="s1-s1-s1" name="Teardowns" source="C:\automation\robot_avancado\tests\teardowns.robot">
-<test id="s1-s1-s1-t1" name="Exemplo 04: Teste lidando com Suite e Test Teardowns" line="35">
-<kw name="Esse keyword vai falhar sozinha!" owner="teardowns">
+<suite id="s1-s1-s1" name="Falhas Previstas" source="C:\automation\robot_avancado\tests\falhas_previstas.robot">
+<test id="s1-s1-s1-t1" name="Exemplo 01: Teste lidando com falhas previstas" line="3">
+<kw name="Essa keyword vai falhar, mas vou ignorar (a suíte irá passar)!">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
 <kw name="Should Be True" owner="BuiltIn">
-<msg time="2025-04-28T16:01:16.297027" level="FAIL">'"May" == "João"' should be true.</msg>
+<msg time="2025-04-28T16:30:08.390023" level="FAIL">'"May" == "João"' should be true.</msg>
 <arg>"May" == "João"</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="FAIL" start="2025-04-28T16:01:16.296464" elapsed="0.001037">'"May" == "João"' should be true.</status>
+<status status="FAIL" start="2025-04-28T16:30:08.389590" elapsed="0.000909">'"May" == "João"' should be true.</status>
 </kw>
-<status status="FAIL" start="2025-04-28T16:01:16.295678" elapsed="0.002065">'"May" == "João"' should be true.</status>
+<arg>Should Be True</arg>
+<arg>"May" == "João"</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-04-28T16:30:08.389156" elapsed="0.001612"/>
 </kw>
-<kw name="Controlando o teardown do teste" owner="teardowns" type="TEARDOWN">
-<kw name="Run Keyword If Test Passed" owner="BuiltIn">
-<arg>Log</arg>
-<arg>Meu teste passou, não preciso apagar dados do banco de dados, por exemplo!</arg>
-<doc>Runs the given keyword with the given arguments, if the test passed.</doc>
-<status status="PASS" start="2025-04-28T16:01:16.299432" elapsed="0.000572"/>
-</kw>
-<kw name="Run Keyword If Test Failed" owner="BuiltIn">
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-04-28T16:01:16.301274" level="INFO">Meu teste falhou, posso imprimir ou manter uma informação no banco de dados para analisar o erro, por exemplo!</msg>
-<arg>Meu teste falhou, posso imprimir ou manter uma informação no banco de dados para analisar o erro, por exemplo!</arg>
+<msg time="2025-04-28T16:30:08.391813" level="INFO">Continuo a execução!!</msg>
+<arg>Continuo a execução!!</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-28T16:01:16.300870" elapsed="0.000652"/>
+<status status="PASS" start="2025-04-28T16:30:08.391062" elapsed="0.001540"/>
 </kw>
-<arg>Log</arg>
-<arg>Meu teste falhou, posso imprimir ou manter uma informação no banco de dados para analisar o erro, por exemplo!</arg>
-<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
-<status status="PASS" start="2025-04-28T16:01:16.300346" elapsed="0.001314"/>
+<status status="PASS" start="2025-04-28T16:30:08.388242" elapsed="0.004616"/>
 </kw>
-<status status="PASS" start="2025-04-28T16:01:16.298362" elapsed="0.003432"/>
+<kw name="Essa keyword encerra a execução da suíte!">
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>"${STOP}"=="Para tudo!"</arg>
+<arg>Fatal Error</arg>
+<arg>msg=Para tudo, não adianta continuar com essa falha aqui!!!</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-04-28T16:30:08.396365" elapsed="0.001002"/>
 </kw>
-<status status="FAIL" start="2025-04-28T16:01:16.294390" elapsed="0.007811">'"May" == "João"' should be true.</status>
+<arg>Não pare, por favor!</arg>
+<status status="PASS" start="2025-04-28T16:30:08.393549" elapsed="0.004055"/>
+</kw>
+<kw name="Essa keyword vai falhar, mas é uma falha que deve acontecer para meu teste ser considerado OK!">
+<kw name="Run Keyword And Expect Error" owner="BuiltIn">
+<kw name="Should Be True" owner="BuiltIn">
+<msg time="2025-04-28T16:30:08.399456" level="FAIL">'"May" == "João"' should be true.</msg>
+<arg>"May" == "João"</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="FAIL" start="2025-04-28T16:30:08.399077" elapsed="0.000697">'"May" == "João"' should be true.</status>
+</kw>
+<arg>'"May" == "João"' should be true.</arg>
+<arg>Should Be True</arg>
+<arg>"May" == "João"</arg>
+<doc>Runs the keyword and checks that the expected error occurred.</doc>
+<status status="PASS" start="2025-04-28T16:30:08.398720" elapsed="0.001341"/>
+</kw>
+<status status="PASS" start="2025-04-28T16:30:08.398109" elapsed="0.002078"/>
+</kw>
+<kw name="Essa keyword vai falhar, não vou ignorar (a suíte irá falhar), mas vou continuar a execução!">
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Should Be True" owner="BuiltIn">
+<msg time="2025-04-28T16:30:08.403122" level="FAIL">'"May" == "João"' should be true.</msg>
+<arg>"May" == "João"</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="FAIL" start="2025-04-28T16:30:08.401920" elapsed="0.002432">'"May" == "João"' should be true.</status>
+</kw>
+<arg>Should Be True</arg>
+<arg>"May" == "João"</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="FAIL" start="2025-04-28T16:30:08.401327" elapsed="0.003217">'"May" == "João"' should be true.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-28T16:30:08.405445" level="INFO">Continuo a execução 1!!</msg>
+<arg>Continuo a execução 1!!</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-28T16:30:08.404795" elapsed="0.000969"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-28T16:30:08.406908" level="INFO">Continuo a execução 2!!</msg>
+<arg>Continuo a execução 2!!</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-28T16:30:08.406015" elapsed="0.001181"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-28T16:30:08.408120" level="INFO">Continuo a execução 3!!</msg>
+<arg>Continuo a execução 3!!</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-28T16:30:08.407454" elapsed="0.000979"/>
+</kw>
+<status status="FAIL" start="2025-04-28T16:30:08.400644" elapsed="0.008043">'"May" == "João"' should be true.</status>
+</kw>
+<kw name="Essa keyword encerra a execução da suíte!">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Fatal Error" owner="BuiltIn">
+<msg time="2025-04-28T16:30:08.410989" level="FAIL">Para tudo, não adianta continuar com essa falha aqui!!!</msg>
+<arg>msg=Para tudo, não adianta continuar com essa falha aqui!!!</arg>
+<doc>Stops the whole test execution.</doc>
+<status status="FAIL" start="2025-04-28T16:30:08.410603" elapsed="0.001263">Para tudo, não adianta continuar com essa falha aqui!!!</status>
+</kw>
+<arg>"${STOP}"=="Para tudo!"</arg>
+<arg>Fatal Error</arg>
+<arg>msg=Para tudo, não adianta continuar com essa falha aqui!!!</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2025-04-28T16:30:08.409958" elapsed="0.002214">Para tudo, não adianta continuar com essa falha aqui!!!</status>
+</kw>
+<arg>Para tudo!</arg>
+<status status="FAIL" start="2025-04-28T16:30:08.409168" elapsed="0.003473">Para tudo, não adianta continuar com essa falha aqui!!!</status>
+</kw>
+<status status="FAIL" start="2025-04-28T16:30:08.386367" elapsed="0.027672">Several failures occurred:
+
+1) '"May" == "João"' should be true.
+
+2) Para tudo, não adianta continuar com essa falha aqui!!!</status>
 </test>
-<kw name="Controlando o teardown da suite" owner="teardowns" type="TEARDOWN">
-<kw name="Run Keyword If All Tests Passed" owner="BuiltIn">
-<arg>Log</arg>
-<arg>Todos os testes passaram, posso enviar um e-mail, por exemplo!</arg>
-<doc>Runs the given keyword with the given arguments, if all tests passed.</doc>
-<status status="PASS" start="2025-04-28T16:01:16.304595" elapsed="0.000520"/>
-</kw>
-<kw name="Run Keyword If Any Tests Failed" owner="BuiltIn">
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-04-28T16:01:16.306873" level="INFO">Alguns testes falharam, posso enviar um e-mail, por exemplo!</msg>
-<arg>Alguns testes falharam, posso enviar um e-mail, por exemplo!</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-28T16:01:16.306299" elapsed="0.000892"/>
-</kw>
-<arg>Log</arg>
-<arg>Alguns testes falharam, posso enviar um e-mail, por exemplo!</arg>
-<doc>Runs the given keyword with the given arguments, if one or more tests failed.</doc>
-<status status="PASS" start="2025-04-28T16:01:16.305378" elapsed="0.001960"/>
-</kw>
-<status status="PASS" start="2025-04-28T16:01:16.303909" elapsed="0.003577"/>
-</kw>
-<status status="FAIL" start="2025-04-28T16:01:16.289709" elapsed="0.017867"/>
+<status status="FAIL" start="2025-04-28T16:30:08.382232" elapsed="0.036974"/>
 </suite>
-<status status="FAIL" start="2025-04-28T16:01:16.286569" elapsed="0.022718"/>
+<status status="FAIL" start="2025-04-28T16:30:08.378532" elapsed="0.043988"/>
 </suite>
-<status status="FAIL" start="2025-04-28T16:01:16.260252" elapsed="0.050523"/>
+<status status="FAIL" start="2025-04-28T16:30:08.349858" elapsed="0.074938"/>
 </suite>
 <statistics>
 <total>
@@ -72,7 +123,7 @@
 <suite>
 <stat name="Robot Avancado" id="s1" pass="0" fail="1" skip="0">Robot Avancado</stat>
 <stat name="Tests" id="s1-s1" pass="0" fail="1" skip="0">Robot Avancado.Tests</stat>
-<stat name="Teardowns" id="s1-s1-s1" pass="0" fail="1" skip="0">Robot Avancado.Tests.Teardowns</stat>
+<stat name="Falhas Previstas" id="s1-s1-s1" pass="0" fail="1" skip="0">Robot Avancado.Tests.Falhas Previstas</stat>
 </suite>
 </statistics>
 <errors>
