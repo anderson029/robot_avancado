@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2 (Python 3.13.3 on win32)" generated="2025-04-28T13:52:27.298564" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="C:\automation\robot_avancado\tests">
+<suite id="s1-s1" name="For" source="C:\automation\robot_avancado\tests\for.robot">
+<test id="s1-s1-t1" name="Tabuada de um valor" line="50">
+<kw name="Get Value From User" owner="Dialogs">
+<msg time="2025-04-28T13:52:29.248323" level="INFO">${numero} = 1</msg>
+<var>${numero}</var>
+<arg>Digite o valor da sua Tabuada:</arg>
+<arg>1</arg>
+<doc>Pauses execution and asks user to input a value.</doc>
+<status status="PASS" start="2025-04-28T13:52:27.374619" elapsed="1.873773"/>
+</kw>
+<kw name="Exibir Tabuada" owner="tabuada">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n======== TABUADA DO ${valor} ========</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.249813" elapsed="0.000631"/>
+</kw>
+<kw name="Calcular Tabuada" owner="tabuada">
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-04-28T13:52:29.251723" level="INFO">${results} = []</msg>
+<var>${results}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.251539" elapsed="0.000222"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-04-28T13:52:29.252504" level="INFO">${total} = 0</msg>
+<var>${total}</var>
+<arg>int(${valor}) * ${counter}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.252178" elapsed="0.000359"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-28T13:52:29.252956" level="INFO">${formatting} = 1 x 0 = 0</msg>
+<var>${formatting}</var>
+<arg>${valor} x ${counter} = ${total}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.252675" elapsed="0.000310"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${results}</arg>
+<arg>${formatting}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.253133" elapsed="0.000166"/>
+</kw>
+<var name="${counter}">0</var>
+<status status="PASS" start="2025-04-28T13:52:29.252067" elapsed="0.001295"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-04-28T13:52:29.253876" level="INFO">${total} = 1</msg>
+<var>${total}</var>
+<arg>int(${valor}) * ${counter}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.253608" elapsed="0.000300"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-28T13:52:29.254300" level="INFO">${formatting} = 1 x 1 = 1</msg>
+<var>${formatting}</var>
+<arg>${valor} x ${counter} = ${total}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.254032" elapsed="0.000298"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${results}</arg>
+<arg>${formatting}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.254434" elapsed="0.000156"/>
+</kw>
+<var name="${counter}">1</var>
+<status status="PASS" start="2025-04-28T13:52:29.253513" elapsed="0.001119"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-04-28T13:52:29.255280" level="INFO">${total} = 2</msg>
+<var>${total}</var>
+<arg>int(${valor}) * ${counter}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.254897" elapsed="0.000430"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-28T13:52:29.255922" level="INFO">${formatting} = 1 x 2 = 2</msg>
+<var>${formatting}</var>
+<arg>${valor} x ${counter} = ${total}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.255505" elapsed="0.000479"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${results}</arg>
+<arg>${formatting}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.256154" elapsed="0.000238"/>
+</kw>
+<var name="${counter}">2</var>
+<status status="PASS" start="2025-04-28T13:52:29.254739" elapsed="0.001718"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-04-28T13:52:29.257154" level="INFO">${total} = 3</msg>
+<var>${total}</var>
+<arg>int(${valor}) * ${counter}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.256766" elapsed="0.000435"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-28T13:52:29.257780" level="INFO">${formatting} = 1 x 3 = 3</msg>
+<var>${formatting}</var>
+<arg>${valor} x ${counter} = ${total}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.257376" elapsed="0.000459"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${results}</arg>
+<arg>${formatting}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.258000" elapsed="0.000229"/>
+</kw>
+<var name="${counter}">3</var>
+<status status="PASS" start="2025-04-28T13:52:29.256618" elapsed="0.001673"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-04-28T13:52:29.259039" level="INFO">${total} = 4</msg>
+<var>${total}</var>
+<arg>int(${valor}) * ${counter}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.258637" elapsed="0.000438"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-28T13:52:29.259622" level="INFO">${formatting} = 1 x 4 = 4</msg>
+<var>${formatting}</var>
+<arg>${valor} x ${counter} = ${total}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.259244" elapsed="0.000408"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${results}</arg>
+<arg>${formatting}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.259796" elapsed="0.000159"/>
+</kw>
+<var name="${counter}">4</var>
+<status status="PASS" start="2025-04-28T13:52:29.258465" elapsed="0.001532"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-04-28T13:52:29.260690" level="INFO">${total} = 5</msg>
+<var>${total}</var>
+<arg>int(${valor}) * ${counter}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.260271" elapsed="0.000453"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-28T13:52:29.261166" level="INFO">${formatting} = 1 x 5 = 5</msg>
+<var>${formatting}</var>
+<arg>${valor} x ${counter} = ${total}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.260908" elapsed="0.000300"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${results}</arg>
+<arg>${formatting}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.261316" elapsed="0.000145"/>
+</kw>
+<var name="${counter}">5</var>
+<status status="PASS" start="2025-04-28T13:52:29.260119" elapsed="0.001382"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-04-28T13:52:29.261990" level="INFO">${total} = 6</msg>
+<var>${total}</var>
+<arg>int(${valor}) * ${counter}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.261714" elapsed="0.000306"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-28T13:52:29.262403" level="INFO">${formatting} = 1 x 6 = 6</msg>
+<var>${formatting}</var>
+<arg>${valor} x ${counter} = ${total}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.262131" elapsed="0.000299"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${results}</arg>
+<arg>${formatting}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.262696" elapsed="0.000176"/>
+</kw>
+<var name="${counter}">6</var>
+<status status="PASS" start="2025-04-28T13:52:29.261623" elapsed="0.001291"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-04-28T13:52:29.263338" level="INFO">${total} = 7</msg>
+<var>${total}</var>
+<arg>int(${valor}) * ${counter}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.263102" elapsed="0.000264"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-28T13:52:29.263724" level="INFO">${formatting} = 1 x 7 = 7</msg>
+<var>${formatting}</var>
+<arg>${valor} x ${counter} = ${total}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.263469" elapsed="0.000282"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${results}</arg>
+<arg>${formatting}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.263861" elapsed="0.000252"/>
+</kw>
+<var name="${counter}">7</var>
+<status status="PASS" start="2025-04-28T13:52:29.263017" elapsed="0.001148"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-04-28T13:52:29.264657" level="INFO">${total} = 8</msg>
+<var>${total}</var>
+<arg>int(${valor}) * ${counter}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.264387" elapsed="0.000303"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-28T13:52:29.265131" level="INFO">${formatting} = 1 x 8 = 8</msg>
+<var>${formatting}</var>
+<arg>${valor} x ${counter} = ${total}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.264816" elapsed="0.000345"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${results}</arg>
+<arg>${formatting}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.265289" elapsed="0.000148"/>
+</kw>
+<var name="${counter}">8</var>
+<status status="PASS" start="2025-04-28T13:52:29.264279" elapsed="0.001199"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-04-28T13:52:29.265918" level="INFO">${total} = 9</msg>
+<var>${total}</var>
+<arg>int(${valor}) * ${counter}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.265684" elapsed="0.000262"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-28T13:52:29.266406" level="INFO">${formatting} = 1 x 9 = 9</msg>
+<var>${formatting}</var>
+<arg>${valor} x ${counter} = ${total}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.266074" elapsed="0.000363"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${results}</arg>
+<arg>${formatting}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.266562" elapsed="0.000191"/>
+</kw>
+<var name="${counter}">9</var>
+<status status="PASS" start="2025-04-28T13:52:29.265581" elapsed="0.001241"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-04-28T13:52:29.267506" level="INFO">${total} = 10</msg>
+<var>${total}</var>
+<arg>int(${valor}) * ${counter}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.267073" elapsed="0.000471"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-28T13:52:29.268035" level="INFO">${formatting} = 1 x 10 = 10</msg>
+<var>${formatting}</var>
+<arg>${valor} x ${counter} = ${total}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.267698" elapsed="0.000367"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${results}</arg>
+<arg>${formatting}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.268184" elapsed="0.000145"/>
+</kw>
+<var name="${counter}">10</var>
+<status status="PASS" start="2025-04-28T13:52:29.266957" elapsed="0.001413"/>
+</iter>
+<var>${counter}</var>
+<value>0</value>
+<value>11</value>
+<status status="PASS" start="2025-04-28T13:52:29.251838" elapsed="0.016566"/>
+</for>
+<return>
+<value>@{results}</value>
+<status status="PASS" start="2025-04-28T13:52:29.268482" elapsed="0.000051"/>
+</return>
+<msg time="2025-04-28T13:52:29.268711" level="INFO">@{linhas_tabuada} = [ 1 x 0 = 0 | 1 x 1 = 1 | 1 x 2 = 2 | 1 x 3 = 3 | 1 x 4 = 4 | 1 x 5 = 5 | 1 x 6 = 6 | 1 x 7 = 7 | 1 x 8 = 8 | 1 x 9 = 9 | 1 x 10 = 10 ]</msg>
+<var>@{linhas_tabuada}</var>
+<arg>${valor}</arg>
+<status status="PASS" start="2025-04-28T13:52:29.250987" elapsed="0.017751"/>
+</kw>
+<kw name="Imprimir Resultados" owner="tabuada">
+<for flavor="IN">
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${linha}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.269373" elapsed="0.000294"/>
+</kw>
+<var name="${linha}">1 x 0 = 0</var>
+<status status="PASS" start="2025-04-28T13:52:29.269286" elapsed="0.000433"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${linha}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.269923" elapsed="0.000275"/>
+</kw>
+<var name="${linha}">1 x 1 = 1</var>
+<status status="PASS" start="2025-04-28T13:52:29.269819" elapsed="0.000429"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${linha}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.270457" elapsed="0.000241"/>
+</kw>
+<var name="${linha}">1 x 2 = 2</var>
+<status status="PASS" start="2025-04-28T13:52:29.270366" elapsed="0.000386"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${linha}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.271011" elapsed="0.000243"/>
+</kw>
+<var name="${linha}">1 x 3 = 3</var>
+<status status="PASS" start="2025-04-28T13:52:29.270893" elapsed="0.000411"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${linha}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.271591" elapsed="0.000370"/>
+</kw>
+<var name="${linha}">1 x 4 = 4</var>
+<status status="PASS" start="2025-04-28T13:52:29.271467" elapsed="0.000557"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${linha}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.272222" elapsed="0.003512"/>
+</kw>
+<var name="${linha}">1 x 5 = 5</var>
+<status status="PASS" start="2025-04-28T13:52:29.272127" elapsed="0.003682"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${linha}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.276150" elapsed="0.001072"/>
+</kw>
+<var name="${linha}">1 x 6 = 6</var>
+<status status="PASS" start="2025-04-28T13:52:29.276005" elapsed="0.001316"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${linha}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.277625" elapsed="0.007323"/>
+</kw>
+<var name="${linha}">1 x 7 = 7</var>
+<status status="PASS" start="2025-04-28T13:52:29.277477" elapsed="0.007603"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${linha}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.285683" elapsed="0.000419"/>
+</kw>
+<var name="${linha}">1 x 8 = 8</var>
+<status status="PASS" start="2025-04-28T13:52:29.285505" elapsed="0.000658"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${linha}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.286398" elapsed="0.002147"/>
+</kw>
+<var name="${linha}">1 x 9 = 9</var>
+<status status="PASS" start="2025-04-28T13:52:29.286292" elapsed="0.002343"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${linha}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.288964" elapsed="0.001067"/>
+</kw>
+<var name="${linha}">1 x 10 = 10</var>
+<status status="PASS" start="2025-04-28T13:52:29.288812" elapsed="0.001508"/>
+</iter>
+<var>${linha}</var>
+<value>@{linhas_tabuada}</value>
+<status status="PASS" start="2025-04-28T13:52:29.269149" elapsed="0.021264"/>
+</for>
+<arg>@{linhas_tabuada}</arg>
+<status status="PASS" start="2025-04-28T13:52:29.268925" elapsed="0.021755"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>==============================</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-04-28T13:52:29.290965" elapsed="0.001452"/>
+</kw>
+<arg>${numero}</arg>
+<status status="PASS" start="2025-04-28T13:52:29.249090" elapsed="0.043485"/>
+</kw>
+<tag>tabuada</tag>
+<status status="PASS" start="2025-04-28T13:52:27.373414" elapsed="1.921167"/>
+</test>
+<status status="PASS" start="2025-04-28T13:52:27.337614" elapsed="1.958438"/>
+</suite>
+<status status="PASS" start="2025-04-28T13:52:27.300416" elapsed="2.002114"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">tabuada</stat>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="1" fail="0" skip="0">Tests</stat>
+<stat name="For" id="s1-s1" pass="1" fail="0" skip="0">Tests.For</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
