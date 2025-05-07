@@ -9,9 +9,9 @@ Teste de Argumentos Opcionais
 
 Criando lista e dicionário via parâmetro
     [Documentation]     No Python é conhecido como "kwargs"
-    # Teste Criando um Dicionário     cpf=111222333444  nome=Teste   idade=18
+    Teste Criando um Dicionário     cpf=111222333444  nome=Teste   idade=18
     Teste Criando uma Lista         may   ribeiro   fernandes
-    # Teste Criando os dois           may   ribeiro   fernandes    shell=True    env=False
+    Teste Criando os dois           may   ribeiro   fernandes    shell=True    env=False
 
 *** Keywords ***
 Teste de Argumentos Básico
@@ -38,5 +38,6 @@ Teste Criando uma Lista
 
 Teste Criando os dois
     ### REGRA: a lista vem primeiro
+    ##Dicionario bastante usada para fazer requisição post 
     [Arguments]     @{minha_lista}  &{meu_dicionario}
     Log    ${minha_lista}\n${meu_dicionario}
