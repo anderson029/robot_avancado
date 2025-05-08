@@ -42,8 +42,8 @@ Adicionando tempo de data
     ${DEPOIS}   Add Time To Date    ${ANTES}   4 hours   result_format=%d-%m-%Y %H:%M:%S
     Log          Antes: ${ANTES} - Depois: ${DEPOIS}
     ${ANTES}    Get Current Date
-    ${DEPOIS}   Add Time To Date    ${ANTES}   7 days    result_format=%d-%m-%Y %H:%M:%S
-    Log          Antes: ${ANTES} - Depois: ${DEPOIS}
+    ${DEPOIS}   Add Time To Date    ${ANTES}    730 days    result_format=%d-%m-%Y %H:%M:%S
+    Log To Console         Antes: ${ANTES} - Depois: ${DEPOIS}
 
 Subtraindo tempo de data
     ${ANTES}    Get Current Date

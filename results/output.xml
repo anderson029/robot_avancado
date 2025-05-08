@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2 (Python 3.13.3 on win32)" generated="2025-05-08T10:40:44.280780" rpa="false" schemaversion="5">
+<suite id="s1" name="Operating System" source="C:\automation\robot_avancado\tests\operating_system.robot">
+<test id="s1-t1" name="Exemplo 01: Criando arquivos" line="6">
+<kw name="Criando um arquivo texto">
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-08T10:40:44.330111" level="INFO" html="true">Created file '&lt;a href="file://C:\automation\robot_avancado\my_files\arquivo_TEXTO.txt"&gt;C:\automation\robot_avancado\my_files\arquivo_TEXTO.txt&lt;/a&gt;'.</msg>
+<arg>./my_files/arquivo_TEXTO.txt</arg>
+<arg>Esse curso vai me tornar um ninja em Robot Framework!!!!</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-08T10:40:44.329400" elapsed="0.000805"/>
+</kw>
+<status status="PASS" start="2025-05-08T10:40:44.328841" elapsed="0.001465"/>
+</kw>
+<kw name="Criando um arquivo JSON">
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-05-08T10:40:44.331610" level="INFO" html="true">Created file '&lt;a href="file://C:\automation\robot_avancado\my_files\arquivo_JSON.json"&gt;C:\automation\robot_avancado\my_files\arquivo_JSON.json&lt;/a&gt;'.</msg>
+<arg>./my_files/arquivo_JSON.json</arg>
+<arg>{"teste01": "valor01", "teste02": 2, "teste03": [1, 2, 3]}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-05-08T10:40:44.330981" elapsed="0.000704"/>
+</kw>
+<status status="PASS" start="2025-05-08T10:40:44.330711" elapsed="0.001064"/>
+</kw>
+<status status="PASS" start="2025-05-08T10:40:44.328064" elapsed="0.004041"/>
+</test>
+<doc>http://robotframework.org/robotframework/latest/libraries/OperatingSystem.html</doc>
+<status status="PASS" start="2025-05-08T10:40:44.283291" elapsed="0.049712"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Operating System" id="s1" pass="1" fail="0" skip="0">Operating System</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
