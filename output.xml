@@ -1,346 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2 (Python 3.13.3 on win32)" generated="2025-05-08T16:48:36.319600" rpa="false" schemaversion="5">
-<suite id="s1" name="String" source="c:\automation\robot_avancado\tests\string.robot">
-<test id="s1-t1" name="Exemplo 01: Lidando com linhas de um texto String" line="7">
-<kw name="Contando as linhas">
-<kw name="Pega arquivo">
-<kw name="Get File" owner="OperatingSystem">
-<msg time="2025-05-08T16:48:36.405700" level="INFO" html="true">Getting file '&lt;a href="file://C:\automation\robot_avancado\my_files\arquivo_texto_linhas.txt"&gt;C:\automation\robot_avancado\my_files\arquivo_texto_linhas.txt&lt;/a&gt;'.</msg>
-<msg time="2025-05-08T16:48:36.411921" level="INFO">${CONTEUDO_ARQUIVO} = Minha linha 00!
-Minha linha 01!
-Minha linha 02!
-Minha linha 03!
-Minha linha 04!
-Minha linha 05!
-</msg>
-<var>${CONTEUDO_ARQUIVO}</var>
-<arg>./my_files/arquivo_texto_linhas.txt</arg>
-<doc>Returns the contents of a specified file.</doc>
-<status status="PASS" start="2025-05-08T16:48:36.405386" elapsed="0.006955"/>
+<robot generator="Robot 7.2 (Python 3.13.3 on win32)" generated="2025-05-09T10:47:21.179182" rpa="false" schemaversion="5">
+<suite id="s1" name="Process" source="c:\automation\robot_avancado\tests\process.robot">
+<test id="s1-t1" name="Exemplo 03: Execute comandos de prompt" line="13">
+<kw name="Executando comandos diversos de prompt">
+<kw name="Run Process" owner="Process">
+<msg time="2025-05-09T10:47:21.281134" level="INFO">Starting process:
+cd..</msg>
+<msg time="2025-05-09T10:47:21.303132" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-05-09T10:47:21.413649" level="INFO">Process completed.</msg>
+<msg time="2025-05-09T10:47:21.415972" level="INFO">${teste} = &lt;result object with rc 0&gt;</msg>
+<var>${teste}</var>
+<arg>cd..</arg>
+<arg>cwd=c:\\automation\\robot_avancado\\tests</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-05-09T10:47:21.280106" elapsed="0.136636"/>
 </kw>
-<return>
-<value>${CONTEUDO_ARQUIVO}</value>
-<status status="PASS" start="2025-05-08T16:48:36.412810" elapsed="0.000324"/>
-</return>
-<msg time="2025-05-08T16:48:36.413800" level="INFO">${STRING} = Minha linha 00!
-Minha linha 01!
-Minha linha 02!
-Minha linha 03!
-Minha linha 04!
-Minha linha 05!
-</msg>
-<var>${STRING}</var>
-<status status="PASS" start="2025-05-08T16:48:36.404553" elapsed="0.009651"/>
-</kw>
-<kw name="Get Line Count" owner="String">
-<msg time="2025-05-08T16:48:36.415506" level="INFO">6 lines.</msg>
-<msg time="2025-05-08T16:48:36.416040" level="INFO">${LINHAS} = 6</msg>
-<var>${LINHAS}</var>
-<arg>${STRING}</arg>
-<doc>Returns and logs the number of lines in the given string.</doc>
-<status status="PASS" start="2025-05-08T16:48:36.414814" elapsed="0.001545"/>
+<kw name="Run Process" owner="Process">
+<msg time="2025-05-09T10:47:21.418604" level="INFO">Starting process:
+"mkdir robot_teste"</msg>
+<msg time="2025-05-09T10:47:21.431509" level="FAIL">FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado</msg>
+<var>${current_dir}</var>
+<arg>mkdir robot_teste</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="FAIL" start="2025-05-09T10:47:21.417887" elapsed="0.030359">FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado</status>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-05-08T16:48:36.417613" level="INFO">Meu arquivo tem: 6 linhas!!</msg>
-<arg>Meu arquivo tem: ${LINHAS} linhas!!</arg>
+<arg>Caminho atual: ${current_dir}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-08T16:48:36.416911" elapsed="0.001139"/>
+<status status="NOT RUN" start="2025-05-09T10:47:21.449075" elapsed="0.000424"/>
 </kw>
-<status status="PASS" start="2025-05-08T16:48:36.403562" elapsed="0.014852"/>
+<status status="FAIL" start="2025-05-09T10:47:21.277736" elapsed="0.172420">FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado</status>
 </kw>
-<kw name="Pegando uma linha específica">
-<kw name="Pega arquivo">
-<kw name="Get File" owner="OperatingSystem">
-<msg time="2025-05-08T16:48:36.420505" level="INFO" html="true">Getting file '&lt;a href="file://C:\automation\robot_avancado\my_files\arquivo_texto_linhas.txt"&gt;C:\automation\robot_avancado\my_files\arquivo_texto_linhas.txt&lt;/a&gt;'.</msg>
-<msg time="2025-05-08T16:48:36.421430" level="INFO">${CONTEUDO_ARQUIVO} = Minha linha 00!
-Minha linha 01!
-Minha linha 02!
-Minha linha 03!
-Minha linha 04!
-Minha linha 05!
-</msg>
-<var>${CONTEUDO_ARQUIVO}</var>
-<arg>./my_files/arquivo_texto_linhas.txt</arg>
-<doc>Returns the contents of a specified file.</doc>
-<status status="PASS" start="2025-05-08T16:48:36.420249" elapsed="0.001351"/>
-</kw>
-<return>
-<value>${CONTEUDO_ARQUIVO}</value>
-<status status="PASS" start="2025-05-08T16:48:36.421784" elapsed="0.000147"/>
-</return>
-<msg time="2025-05-08T16:48:36.422188" level="INFO">${STRING} = Minha linha 00!
-Minha linha 01!
-Minha linha 02!
-Minha linha 03!
-Minha linha 04!
-Minha linha 05!
-</msg>
-<var>${STRING}</var>
-<status status="PASS" start="2025-05-08T16:48:36.419853" elapsed="0.002465"/>
-</kw>
-<kw name="Get Line" owner="String">
-<msg time="2025-05-08T16:48:36.423120" level="INFO">${LINHA_3} = Minha linha 03!</msg>
-<var>${LINHA_3}</var>
-<arg>${STRING}</arg>
-<arg>3</arg>
-<doc>Returns the specified line from the given ``string``.</doc>
-<status status="PASS" start="2025-05-08T16:48:36.422538" elapsed="0.000803"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-05-08T16:48:36.424350" level="INFO">Conteúdo da linha 03 do arquivo:
-"Minha linha 03!"</msg>
-<arg>Conteúdo da linha 03 do arquivo:\n"${LINHA_3}"</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-08T16:48:36.423615" elapsed="0.000951"/>
-</kw>
-<for flavor="IN RANGE">
-<iter>
-<kw name="Get Line" owner="String">
-<msg time="2025-05-08T16:48:36.425892" level="INFO">${CONTEUDO_LINHA} = Minha linha 00!</msg>
-<var>${CONTEUDO_LINHA}</var>
-<arg>${STRING}</arg>
-<arg>${NUMERO_LINHA}</arg>
-<doc>Returns the specified line from the given ``string``.</doc>
-<status status="PASS" start="2025-05-08T16:48:36.425488" elapsed="0.000567"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-05-08T16:48:36.426678" level="INFO">Conteúdo da linha 0 do arquivo:
-"Minha linha 00!"</msg>
-<arg>Conteúdo da linha ${NUMERO_LINHA} do arquivo:\n"${CONTEUDO_LINHA}"</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-08T16:48:36.426315" elapsed="0.000613"/>
-</kw>
-<var name="${NUMERO_LINHA}">0</var>
-<status status="PASS" start="2025-05-08T16:48:36.425210" elapsed="0.002031"/>
-</iter>
-<iter>
-<kw name="Get Line" owner="String">
-<msg time="2025-05-08T16:48:36.428314" level="INFO">${CONTEUDO_LINHA} = Minha linha 01!</msg>
-<var>${CONTEUDO_LINHA}</var>
-<arg>${STRING}</arg>
-<arg>${NUMERO_LINHA}</arg>
-<doc>Returns the specified line from the given ``string``.</doc>
-<status status="PASS" start="2025-05-08T16:48:36.427881" elapsed="0.000604"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-05-08T16:48:36.429101" level="INFO">Conteúdo da linha 1 do arquivo:
-"Minha linha 01!"</msg>
-<arg>Conteúdo da linha ${NUMERO_LINHA} do arquivo:\n"${CONTEUDO_LINHA}"</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-08T16:48:36.428768" elapsed="0.000518"/>
-</kw>
-<var name="${NUMERO_LINHA}">1</var>
-<status status="PASS" start="2025-05-08T16:48:36.427592" elapsed="0.001823"/>
-</iter>
-<iter>
-<kw name="Get Line" owner="String">
-<msg time="2025-05-08T16:48:36.430223" level="INFO">${CONTEUDO_LINHA} = Minha linha 02!</msg>
-<var>${CONTEUDO_LINHA}</var>
-<arg>${STRING}</arg>
-<arg>${NUMERO_LINHA}</arg>
-<doc>Returns the specified line from the given ``string``.</doc>
-<status status="PASS" start="2025-05-08T16:48:36.429878" elapsed="0.000503"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-05-08T16:48:36.430924" level="INFO">Conteúdo da linha 2 do arquivo:
-"Minha linha 02!"</msg>
-<arg>Conteúdo da linha ${NUMERO_LINHA} do arquivo:\n"${CONTEUDO_LINHA}"</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-08T16:48:36.430621" elapsed="0.000497"/>
-</kw>
-<var name="${NUMERO_LINHA}">2</var>
-<status status="PASS" start="2025-05-08T16:48:36.429667" elapsed="0.001580"/>
-</iter>
-<iter>
-<kw name="Get Line" owner="String">
-<msg time="2025-05-08T16:48:36.432051" level="INFO">${CONTEUDO_LINHA} = Minha linha 03!</msg>
-<var>${CONTEUDO_LINHA}</var>
-<arg>${STRING}</arg>
-<arg>${NUMERO_LINHA}</arg>
-<doc>Returns the specified line from the given ``string``.</doc>
-<status status="PASS" start="2025-05-08T16:48:36.431686" elapsed="0.000513"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-05-08T16:48:36.432775" level="INFO">Conteúdo da linha 3 do arquivo:
-"Minha linha 03!"</msg>
-<arg>Conteúdo da linha ${NUMERO_LINHA} do arquivo:\n"${CONTEUDO_LINHA}"</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-08T16:48:36.432442" elapsed="0.000563"/>
-</kw>
-<var name="${NUMERO_LINHA}">3</var>
-<status status="PASS" start="2025-05-08T16:48:36.431483" elapsed="0.001666"/>
-</iter>
-<iter>
-<kw name="Get Line" owner="String">
-<msg time="2025-05-08T16:48:36.434099" level="INFO">${CONTEUDO_LINHA} = Minha linha 04!</msg>
-<var>${CONTEUDO_LINHA}</var>
-<arg>${STRING}</arg>
-<arg>${NUMERO_LINHA}</arg>
-<doc>Returns the specified line from the given ``string``.</doc>
-<status status="PASS" start="2025-05-08T16:48:36.433614" elapsed="0.000784"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-05-08T16:48:36.435356" level="INFO">Conteúdo da linha 4 do arquivo:
-"Minha linha 04!"</msg>
-<arg>Conteúdo da linha ${NUMERO_LINHA} do arquivo:\n"${CONTEUDO_LINHA}"</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-08T16:48:36.434806" elapsed="0.000901"/>
-</kw>
-<var name="${NUMERO_LINHA}">4</var>
-<status status="PASS" start="2025-05-08T16:48:36.433394" elapsed="0.002806"/>
-</iter>
-<iter>
-<kw name="Get Line" owner="String">
-<msg time="2025-05-08T16:48:36.437399" level="INFO">${CONTEUDO_LINHA} = Minha linha 05!</msg>
-<var>${CONTEUDO_LINHA}</var>
-<arg>${STRING}</arg>
-<arg>${NUMERO_LINHA}</arg>
-<doc>Returns the specified line from the given ``string``.</doc>
-<status status="PASS" start="2025-05-08T16:48:36.436897" elapsed="0.000797"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-05-08T16:48:36.438543" level="INFO">Conteúdo da linha 5 do arquivo:
-"Minha linha 05!"</msg>
-<arg>Conteúdo da linha ${NUMERO_LINHA} do arquivo:\n"${CONTEUDO_LINHA}"</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-08T16:48:36.438070" elapsed="0.000921"/>
-</kw>
-<var name="${NUMERO_LINHA}">5</var>
-<status status="PASS" start="2025-05-08T16:48:36.436594" elapsed="0.002913"/>
-</iter>
-<var>${NUMERO_LINHA}</var>
-<value>0</value>
-<value>6</value>
-<status status="PASS" start="2025-05-08T16:48:36.424757" elapsed="0.015074"/>
-</for>
-<status status="PASS" start="2025-05-08T16:48:36.419340" elapsed="0.020816"/>
-</kw>
-<kw name="Pegando uma linha específica com a palavra &quot;linha 01&quot;" source_name="Pegando uma linha específica com a palavra &quot;${PALAVRA}&quot;">
-<kw name="Pega arquivo">
-<kw name="Get File" owner="OperatingSystem">
-<msg time="2025-05-08T16:48:36.443765" level="INFO" html="true">Getting file '&lt;a href="file://C:\automation\robot_avancado\my_files\arquivo_texto_linhas.txt"&gt;C:\automation\robot_avancado\my_files\arquivo_texto_linhas.txt&lt;/a&gt;'.</msg>
-<msg time="2025-05-08T16:48:36.445283" level="INFO">${CONTEUDO_ARQUIVO} = Minha linha 00!
-Minha linha 01!
-Minha linha 02!
-Minha linha 03!
-Minha linha 04!
-Minha linha 05!
-</msg>
-<var>${CONTEUDO_ARQUIVO}</var>
-<arg>./my_files/arquivo_texto_linhas.txt</arg>
-<doc>Returns the contents of a specified file.</doc>
-<status status="PASS" start="2025-05-08T16:48:36.443223" elapsed="0.002437"/>
-</kw>
-<return>
-<value>${CONTEUDO_ARQUIVO}</value>
-<status status="PASS" start="2025-05-08T16:48:36.446049" elapsed="0.000278"/>
-</return>
-<msg time="2025-05-08T16:48:36.446956" level="INFO">${STRING} = Minha linha 00!
-Minha linha 01!
-Minha linha 02!
-Minha linha 03!
-Minha linha 04!
-Minha linha 05!
-</msg>
-<var>${STRING}</var>
-<status status="PASS" start="2025-05-08T16:48:36.442247" elapsed="0.005039"/>
-</kw>
-<kw name="Get Lines Containing String" owner="String">
-<msg time="2025-05-08T16:48:36.448467" level="INFO">1 out of 6 lines matched.</msg>
-<msg time="2025-05-08T16:48:36.448870" level="INFO">${LINHA} = Minha linha 01!</msg>
-<var>${LINHA}</var>
-<arg>${STRING}</arg>
-<arg>${PALAVRA}</arg>
-<doc>Returns lines of the given ``string`` that contain the ``pattern``.</doc>
-<status status="PASS" start="2025-05-08T16:48:36.447793" elapsed="0.001392"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-05-08T16:48:36.450218" level="INFO">Linha com linha 01:
-"Minha linha 01!"</msg>
-<arg>Linha com ${PALAVRA}:\n"${LINHA}"</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-08T16:48:36.449645" elapsed="0.000909"/>
-</kw>
-<status status="PASS" start="2025-05-08T16:48:36.441157" elapsed="0.009752"/>
-</kw>
-<kw name="Pegando até um marcador">
-<kw name="Pega arquivo">
-<kw name="Get File" owner="OperatingSystem">
-<msg time="2025-05-08T16:48:36.453612" level="INFO" html="true">Getting file '&lt;a href="file://C:\automation\robot_avancado\my_files\arquivo_texto_linhas.txt"&gt;C:\automation\robot_avancado\my_files\arquivo_texto_linhas.txt&lt;/a&gt;'.</msg>
-<msg time="2025-05-08T16:48:36.454696" level="INFO">${CONTEUDO_ARQUIVO} = Minha linha 00!
-Minha linha 01!
-Minha linha 02!
-Minha linha 03!
-Minha linha 04!
-Minha linha 05!
-</msg>
-<var>${CONTEUDO_ARQUIVO}</var>
-<arg>./my_files/arquivo_texto_linhas.txt</arg>
-<doc>Returns the contents of a specified file.</doc>
-<status status="PASS" start="2025-05-08T16:48:36.453227" elapsed="0.001888"/>
-</kw>
-<return>
-<value>${CONTEUDO_ARQUIVO}</value>
-<status status="PASS" start="2025-05-08T16:48:36.455522" elapsed="0.000300"/>
-</return>
-<msg time="2025-05-08T16:48:36.456311" level="INFO">${STRING} = Minha linha 00!
-Minha linha 01!
-Minha linha 02!
-Minha linha 03!
-Minha linha 04!
-Minha linha 05!
-</msg>
-<var>${STRING}</var>
-<status status="PASS" start="2025-05-08T16:48:36.452613" elapsed="0.003948"/>
-</kw>
-<kw name="Get Line" owner="String">
-<msg time="2025-05-08T16:48:36.457813" level="INFO">${LINHA} = Minha linha 00!</msg>
-<var>${LINHA}</var>
-<arg>${STRING}</arg>
-<arg>0</arg>
-<doc>Returns the specified line from the given ``string``.</doc>
-<status status="PASS" start="2025-05-08T16:48:36.456972" elapsed="0.001901"/>
-</kw>
-<kw name="Fetch From Left" owner="String">
-<msg time="2025-05-08T16:48:36.459989" level="INFO">${COMECO} = Minha linha </msg>
-<var>${COMECO}</var>
-<arg>${LINHA}</arg>
-<arg>0</arg>
-<doc>Returns contents of the ``string`` before the first occurrence of ``marker``.</doc>
-<status status="PASS" start="2025-05-08T16:48:36.459279" elapsed="0.001051"/>
-</kw>
-<kw name="Fetch From Right" owner="String">
-<msg time="2025-05-08T16:48:36.469221" level="INFO">${FIM} = 00!</msg>
-<var>${FIM}</var>
-<arg>${LINHA}</arg>
-<arg>linha${SPACE}</arg>
-<doc>Returns contents of the ``string`` after the last occurrence of ``marker``.</doc>
-<status status="PASS" start="2025-05-08T16:48:36.467992" elapsed="0.001685"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-05-08T16:48:36.470862" level="INFO">Começo: "Minha linha "
-Fim:"00!"
-
-Tudo junto: "Minha linha 00!"</msg>
-<arg>Começo: "${COMECO}"\nFim:"${FIM}"\n\nTudo junto: "${COMECO}${FIM}"</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-08T16:48:36.470135" elapsed="0.001355"/>
-</kw>
-<status status="PASS" start="2025-05-08T16:48:36.451833" elapsed="0.019989"/>
-</kw>
-<status status="PASS" start="2025-05-08T16:48:36.402173" elapsed="0.150448"/>
+<status status="FAIL" start="2025-05-09T10:47:21.275303" elapsed="0.176159">FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado</status>
 </test>
-<doc>http://robotframework.org/robotframework/latest/libraries/String.html</doc>
-<status status="PASS" start="2025-05-08T16:48:36.332822" elapsed="0.222579"/>
+<doc>http://robotframework.org/robotframework/latest/libraries/Process.html</doc>
+<status status="FAIL" start="2025-05-09T10:47:21.195187" elapsed="0.259662"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="String" id="s1" pass="1" fail="0" skip="0">String</stat>
+<stat name="Process" id="s1" pass="0" fail="1" skip="0">Process</stat>
 </suite>
 </statistics>
 <errors>
