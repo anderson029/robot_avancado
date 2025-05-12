@@ -1,58 +1,197 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2 (Python 3.13.3 on win32)" generated="2025-05-09T10:47:23.865695" rpa="false" schemaversion="5">
+<robot generator="Robot 7.2 (Python 3.13.3 on win32)" generated="2025-05-12T18:57:31.761028" rpa="false" schemaversion="5">
 <suite id="s1" name="Robot Avancado" source="C:\automation\robot_avancado">
 <suite id="s1-s1" name="Tests" source="C:\automation\robot_avancado\tests">
-<suite id="s1-s1-s1" name="Process" source="C:\automation\robot_avancado\tests\process.robot">
-<test id="s1-s1-s1-t1" name="Exemplo 03: Execute comandos de prompt" line="13">
-<kw name="Executando comandos diversos de prompt">
-<kw name="Run Process" owner="Process">
-<msg time="2025-05-09T10:47:23.957929" level="INFO">Starting process:
-cd..</msg>
-<msg time="2025-05-09T10:47:23.977609" level="INFO">Waiting for process to complete.</msg>
-<msg time="2025-05-09T10:47:24.005900" level="INFO">Process completed.</msg>
-<msg time="2025-05-09T10:47:24.006766" level="INFO">${teste} = &lt;result object with rc 0&gt;</msg>
-<var>${teste}</var>
-<arg>cd..</arg>
-<arg>cwd=C:\\automation\\robot_avancado\\tests</arg>
-<arg>shell=True</arg>
-<doc>Runs a process and waits for it to complete.</doc>
-<status status="PASS" start="2025-05-09T10:47:23.957043" elapsed="0.050094"/>
+<suite id="s1-s1-s1" name="Database" source="C:\automation\robot_avancado\tests\database.robot">
+<test id="s1-s1-s1-t1" name="Exemplo 01: Executando scripts SQL via Arquivos" line="16">
+<kw name="Conectar no Banco de Dados" owner="library_database" type="SETUP">
+<kw name="Connect To Database" owner="DatabaseLibrary">
+<msg time="2025-05-12T18:57:31.860141" level="INFO">Looking for configuration file: 'resources\db.cfg'</msg>
+<msg time="2025-05-12T18:57:31.860761" level="INFO">Configuration file doesn't exist</msg>
+<msg time="2025-05-12T18:57:31.877851" level="INFO">Connect to DB using : psycopg2.connect(database='postgres', user='postgres', password=***, host='localhost', port=5432)</msg>
+<arg>db_module=psycopg2</arg>
+<arg>db_name=postgres</arg>
+<arg>db_user=postgres</arg>
+<arg>db_password=1234</arg>
+<arg>db_host=localhost</arg>
+<arg>db_port=5432</arg>
+<doc>Creates a database connection using the DB API 2.0 ``db_module`` and the parameters provided.
+Along with listed commonly used arguments (`db_name`, `db_host` etc.)
+you can set any other DB module specific parameters as key/value pairs.</doc>
+<status status="PASS" start="2025-05-12T18:57:31.859524" elapsed="0.195012"/>
 </kw>
-<kw name="Run Process" owner="Process">
-<msg time="2025-05-09T10:47:24.008460" level="INFO">Starting process:
-"mkdir robot_teste"</msg>
-<msg time="2025-05-09T10:47:24.013385" level="FAIL">FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado</msg>
-<var>${current_dir}</var>
-<arg>mkdir robot_teste</arg>
-<doc>Runs a process and waits for it to complete.</doc>
-<status status="FAIL" start="2025-05-09T10:47:24.007705" elapsed="0.012230">FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado</status>
+<status status="PASS" start="2025-05-12T18:57:31.858154" elapsed="0.196650"/>
+</kw>
+<kw name="Drop table" owner="library_database">
+<kw name="Execute Sql String" owner="DatabaseLibrary">
+<msg time="2025-05-12T18:57:32.056461" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;DROP TABLE IF EXISTS account CASCADE;&lt;/code&gt;</msg>
+<msg time="2025-05-12T18:57:32.065699" level="INFO">Commit the transaction</msg>
+<arg>DROP TABLE IF EXISTS ${TABELA} CASCADE;</arg>
+<doc>Executes the ``sql_string`` as a single SQL command.</doc>
+<status status="PASS" start="2025-05-12T18:57:32.055987" elapsed="0.022264"/>
+</kw>
+<arg>account</arg>
+<status status="PASS" start="2025-05-12T18:57:32.055351" elapsed="0.023263"/>
+</kw>
+<kw name="Executar script via ARQUIVO no Banco de Dados" owner="library_database">
+<kw name="Monta path do arquivo" owner="library_database">
+<kw name="Join Path" owner="OperatingSystem">
+<msg time="2025-05-12T18:57:32.080770" level="INFO">${caminho_correto} = C:\automation\robot_avancado\my_files\create_table_accounts.sql</msg>
+<var>${caminho_correto}</var>
+<arg>C:\\automation\\robot_avancado\\keywords\\database_Library</arg>
+<arg>../..</arg>
+<arg>my_files</arg>
+<arg>${ARQUIVO}</arg>
+<doc>Joins the given path part(s) to the given base path.</doc>
+<status status="PASS" start="2025-05-12T18:57:32.080259" elapsed="0.000678"/>
+</kw>
+<kw name="Normalize Path" owner="OperatingSystem">
+<msg time="2025-05-12T18:57:32.081768" level="INFO">${caminho_correto} = C:\automation\robot_avancado\my_files\create_table_accounts.sql</msg>
+<var>${caminho_correto}</var>
+<arg>${caminho_correto}</arg>
+<doc>Normalizes the given path.</doc>
+<status status="PASS" start="2025-05-12T18:57:32.081116" elapsed="0.000887"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<arg>Caminho atual: ${current_dir}</arg>
+<msg time="2025-05-12T18:57:32.082978" level="INFO">Caminho final: C:\automation\robot_avancado\my_files\create_table_accounts.sql</msg>
+<arg>Caminho final: ${caminho_correto}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2025-05-09T10:47:24.020491" elapsed="0.000455"/>
+<status status="PASS" start="2025-05-12T18:57:32.082210" elapsed="0.001209"/>
 </kw>
-<status status="FAIL" start="2025-05-09T10:47:23.955340" elapsed="0.066017">FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado</status>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-05-12T18:57:32.085031" level="INFO" html="true">File '&lt;a href="file://C:\automation\robot_avancado\my_files\create_table_accounts.sql"&gt;C:\automation\robot_avancado\my_files\create_table_accounts.sql&lt;/a&gt;' exists.</msg>
+<arg>${caminho_correto}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-05-12T18:57:32.083696" elapsed="0.002567"/>
 </kw>
-<status status="FAIL" start="2025-05-09T10:47:23.952198" elapsed="0.069930">FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado</status>
+<return>
+<value>${caminho_correto}</value>
+<status status="PASS" start="2025-05-12T18:57:32.086529" elapsed="0.000577"/>
+</return>
+<msg time="2025-05-12T18:57:32.087514" level="INFO">${caminho_completo} = C:\automation\robot_avancado\my_files\create_table_accounts.sql</msg>
+<var>${caminho_completo}</var>
+<arg>${FILE}</arg>
+<status status="PASS" start="2025-05-12T18:57:32.079756" elapsed="0.008061"/>
+</kw>
+<kw name="Execute Sql Script" owner="DatabaseLibrary">
+<msg time="2025-05-12T18:57:32.089375" level="INFO">Splitting script file into statements...</msg>
+<msg time="2025-05-12T18:57:32.091222" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;CREATE TABLE account( user_id serial PRIMARY KEY, username VARCHAR (50) UNIQUE NOT NULL, password VARCHAR (50) NOT NULL, email VARCHAR (355) UNIQUE NOT NULL )&lt;/code&gt;</msg>
+<msg time="2025-05-12T18:57:32.111306" level="INFO">Commit the transaction</msg>
+<arg>${caminho_completo}</arg>
+<doc>Executes the content of the SQL script file loaded from `script_path` as SQL commands.</doc>
+<status status="PASS" start="2025-05-12T18:57:32.088184" elapsed="0.024242"/>
+</kw>
+<arg>create_table_accounts.sql</arg>
+<status status="PASS" start="2025-05-12T18:57:32.079132" elapsed="0.033553"/>
+</kw>
+<kw name="Executar script via ARQUIVO no Banco de Dados" owner="library_database">
+<kw name="Monta path do arquivo" owner="library_database">
+<kw name="Join Path" owner="OperatingSystem">
+<msg time="2025-05-12T18:57:32.114628" level="INFO">${caminho_correto} = C:\automation\robot_avancado\my_files\insert_into_account.sql</msg>
+<var>${caminho_correto}</var>
+<arg>C:\\automation\\robot_avancado\\keywords\\database_Library</arg>
+<arg>../..</arg>
+<arg>my_files</arg>
+<arg>${ARQUIVO}</arg>
+<doc>Joins the given path part(s) to the given base path.</doc>
+<status status="PASS" start="2025-05-12T18:57:32.114252" elapsed="0.000541"/>
+</kw>
+<kw name="Normalize Path" owner="OperatingSystem">
+<msg time="2025-05-12T18:57:32.115550" level="INFO">${caminho_correto} = C:\automation\robot_avancado\my_files\insert_into_account.sql</msg>
+<var>${caminho_correto}</var>
+<arg>${caminho_correto}</arg>
+<doc>Normalizes the given path.</doc>
+<status status="PASS" start="2025-05-12T18:57:32.114984" elapsed="0.000737"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-12T18:57:32.116274" level="INFO">Caminho final: C:\automation\robot_avancado\my_files\insert_into_account.sql</msg>
+<arg>Caminho final: ${caminho_correto}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-12T18:57:32.115909" elapsed="0.000538"/>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-05-12T18:57:32.117549" level="INFO" html="true">File '&lt;a href="file://C:\automation\robot_avancado\my_files\insert_into_account.sql"&gt;C:\automation\robot_avancado\my_files\insert_into_account.sql&lt;/a&gt;' exists.</msg>
+<arg>${caminho_correto}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-05-12T18:57:32.116617" elapsed="0.001747"/>
+</kw>
+<return>
+<value>${caminho_correto}</value>
+<status status="PASS" start="2025-05-12T18:57:32.119041" elapsed="0.000566"/>
+</return>
+<msg time="2025-05-12T18:57:32.119931" level="INFO">${caminho_completo} = C:\automation\robot_avancado\my_files\insert_into_account.sql</msg>
+<var>${caminho_completo}</var>
+<arg>${FILE}</arg>
+<status status="PASS" start="2025-05-12T18:57:32.113792" elapsed="0.006400"/>
+</kw>
+<kw name="Execute Sql Script" owner="DatabaseLibrary">
+<msg time="2025-05-12T18:57:32.121700" level="INFO">Splitting script file into statements...</msg>
+<msg time="2025-05-12T18:57:32.122702" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;INSERT INTO account (username, password, email) VALUES ('Anderson', 'robotrobotrei', 'testeepassou@robot.com')&lt;/code&gt;</msg>
+<msg time="2025-05-12T18:57:32.129976" level="INFO">Commit the transaction</msg>
+<arg>${caminho_completo}</arg>
+<doc>Executes the content of the SQL script file loaded from `script_path` as SQL commands.</doc>
+<status status="PASS" start="2025-05-12T18:57:32.120453" elapsed="0.010521"/>
+</kw>
+<arg>insert_into_account.sql</arg>
+<status status="PASS" start="2025-05-12T18:57:32.113172" elapsed="0.018042"/>
+</kw>
+<kw name="Confere se &quot;Anderson&quot; foi inserido com sucesso" owner="library_database" source_name="Confere se &quot;${USER}&quot; foi inserido com sucesso">
+<kw name="Row Count" owner="DatabaseLibrary">
+<msg time="2025-05-12T18:57:32.132793" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;SELECT username FROM account WHERE username = 'Anderson'&lt;/code&gt;</msg>
+<msg time="2025-05-12T18:57:32.134209" level="INFO">Commit the transaction</msg>
+<msg time="2025-05-12T18:57:32.134825" level="INFO">Retrieved 1 rows</msg>
+<msg time="2025-05-12T18:57:32.135311" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 1 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="color:black; background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;username&lt;/th&gt;&lt;/tr&gt;&lt;tr style="background-color: var(--secondary-color, #eee)"&gt;&lt;th scope="row" style="color:black; background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Anderson&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg time="2025-05-12T18:57:32.136239" level="INFO">${count} = 1</msg>
+<var>${count}</var>
+<arg>SELECT username FROM account WHERE username = '${USER}'</arg>
+<doc>Runs a query with the ``select_statement`` and returns the number of rows in the result.</doc>
+<status status="PASS" start="2025-05-12T18:57:32.132424" elapsed="0.004536"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${count} &gt; 0</arg>
+<arg>msg=O usuário ${USER} não foi encontrado!</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-05-12T18:57:32.137387" elapsed="0.000959"/>
+</kw>
+<status status="PASS" start="2025-05-12T18:57:32.131832" elapsed="0.006689"/>
+</kw>
+<kw name="Desconectar do Banco de Dados" owner="library_database" type="TEARDOWN">
+<kw name="Disconnect From Database" owner="DatabaseLibrary">
+<doc>Disconnects from the database.</doc>
+<status status="PASS" start="2025-05-12T18:57:32.139580" elapsed="0.000526"/>
+</kw>
+<status status="PASS" start="2025-05-12T18:57:32.139043" elapsed="0.001245"/>
+</kw>
+<tag>arquivo</tag>
+<tag>sql</tag>
+<status status="PASS" start="2025-05-12T18:57:31.855978" elapsed="0.284595"/>
 </test>
-<doc>http://robotframework.org/robotframework/latest/libraries/Process.html</doc>
-<status status="FAIL" start="2025-05-09T10:47:23.934844" elapsed="0.090328"/>
+<doc>[14/10/2019] https://franz-see.github.io/Robotframework-Database-Library/api/1.2.2/DatabaseLibrary.html
+Instale: "pip install -U robotframework-databaselibrary"
+Para acessar o BD o Robot precisa conhecer o DRIVER de cada banco, então precisamos instalar esse DRIVER também (instale apenas para o BD que você utiliza!) ...
+Para PostgreSQL: "pip install psycopg2"
+Para SQLite 3: não precisa instalar nada!
+Para MySQL: "pip install pymysql"
+Para SQL Server: "pip install pymssql"
+Para Oracle: "pip install cx-Oracle"</doc>
+<status status="PASS" start="2025-05-12T18:57:31.800976" elapsed="0.341870"/>
 </suite>
-<status status="FAIL" start="2025-05-09T10:47:23.926207" elapsed="0.102834"/>
+<status status="PASS" start="2025-05-12T18:57:31.797036" elapsed="0.351391"/>
 </suite>
-<status status="FAIL" start="2025-05-09T10:47:23.874925" elapsed="0.159779"/>
+<status status="PASS" start="2025-05-12T18:57:31.766844" elapsed="0.383429"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="1" fail="0" skip="0">arquivo</stat>
+<stat pass="1" fail="0" skip="0">sql</stat>
 </tag>
 <suite>
-<stat name="Robot Avancado" id="s1" pass="0" fail="1" skip="0">Robot Avancado</stat>
-<stat name="Tests" id="s1-s1" pass="0" fail="1" skip="0">Robot Avancado.Tests</stat>
-<stat name="Process" id="s1-s1-s1" pass="0" fail="1" skip="0">Robot Avancado.Tests.Process</stat>
+<stat name="Robot Avancado" id="s1" pass="1" fail="0" skip="0">Robot Avancado</stat>
+<stat name="Tests" id="s1-s1" pass="1" fail="0" skip="0">Robot Avancado.Tests</stat>
+<stat name="Database" id="s1-s1-s1" pass="1" fail="0" skip="0">Robot Avancado.Tests.Database</stat>
 </suite>
 </statistics>
 <errors>
