@@ -7,6 +7,7 @@ Documentation   [14/10/2019] https://franz-see.github.io/Robotframework-Database
 ...             Para MySQL: "pip install pymysql"
 ...             Para SQL Server: "pip install pymssql"
 ...             Para Oracle: "pip install cx-Oracle"
+
 Library         DatabaseLibrary
 Library         OperatingSystem
 Test Setup      Conectar no Banco de Dados
@@ -15,9 +16,10 @@ Test Teardown   Desconectar do Banco de Dados
 *** Test Cases ***
 Exemplo 01: Executando scripts SQL via Arquivos
     [Tags]    arquivo
-    Execute SQL String    DROP TABLE IF EXISTS account CASCADE;
-    Executar script via ARQUIVO no Banco de Dados       ${CURDIR}/my_sql_scripts/create_table_accounts.sql
-    Executar script via ARQUIVO no Banco de Dados       ${CURDIR}/my_sql_scripts/insert_into_account.sql
+
+    Drop table    account
+    Executar script via ARQUIVO no Banco de Dados       create_table_accounts.sql 
+    Executar script via ARQUIVO no Banco de Dados       insert_into_account.sql
     Confere se "Anderson" foi inserido com sucesso
 
 Exemplo 02: Executando scripts SQL via STRING
@@ -32,11 +34,21 @@ Exemplo 03: Select Statement
     Log    Usuário ${RESPOSTA_SELECT[0][0]} - Nome: ${RESPOSTA_SELECT[0][1]} - E-mail: ${RESPOSTA_SELECT[0][3]}
    
 Exemplo 04: Limpando Tabelas
-    Executar script via ARQUIVO no Banco de Dados       ${CURDIR}/my_sql_scripts/create_table_accounts.sql
+    Drop table    account
+    Executar script via ARQUIVO no Banco de Dados       create_table_accounts.sql
     Limpar Tabela    account
     Executar script via STRING no Banco de Dados     DROP table account
 
 *** Keywords ***
+
+Monta path do arquivo
+    [Arguments]     ${ARQUIVO}
+    ${caminho_correto} =    Join Path    ${CURDIR}    ..    my_files    ${ARQUIVO}
+    ${caminho_correto} =    Normalize Path    ${caminho_correto}  
+    Log    Caminho final: ${caminho_correto}    
+    File Should Exist    ${caminho_correto}
+    RETURN    ${caminho_correto}
+
 Conectar no Banco de Dados
     ## PostgreSQL
     # Connect To Database   dbapiModuleName=psycopg2   dbName=postgres   dbUsername=postgres   dbPassword=1234   dbHost=localhost   dbPort=5432
@@ -60,7 +72,8 @@ Executar script via STRING no Banco de Dados
 
 Executar script via ARQUIVO no Banco de Dados
     [Arguments]          ${FILE}
-    Execute SQL Script   ${FILE}
+    ${caminho_completo} =    Monta path do arquivo    ${FILE}
+    Execute SQL Script   ${caminho_completo}
 
 Executar query no Banco de dados
     [Arguments]         ${QUERY}
@@ -75,3 +88,7 @@ Limpar Tabela
     [Arguments]     ${TABELA}
     ${REGISTROS}    Row Count    SELECT * FROM ${TABELA}
     Run Keyword If  ${REGISTROS} > 0    Delete All Rows From Table    ${TABELA}
+
+Drop table
+    [Arguments]     ${TABELA}
+    Execute SQL String    DROP TABLE IF EXISTS ${TABELA} CASCADE;
