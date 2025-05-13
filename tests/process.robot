@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation   http://robotframework.org/robotframework/latest/libraries/Process.html
 Library         Process
+Resource    ../keywords/database_Library/library_database.robot
 
 *** Test Cases ***
 Exemplo 01: Abrindo programas
@@ -8,7 +9,7 @@ Exemplo 01: Abrindo programas
 
 Exemplo 02: Executando e aguardando scripts/programas
     Execute um script e aguarde ele finalizar com sucesso
-    # Execute um script e aguarde ele finalizar com falha
+    Execute um script e aguarde ele finalizar com falha
 
 Exemplo 03: Execute comandos de prompt
     Executando comandos diversos de prompt
@@ -30,21 +31,24 @@ Verifica sucesso na execução do processo
     Run Keyword If   ${PROCESSO.rc}!=0   Log   FALHA OCORRIDA: "${PROCESSO.stderr}"
 
 Execute um script e aguarde ele finalizar com sucesso
-    ## Inicia o processo e espera pelo seu término
-    ${MEU_PROCESSO}     Run Process     python   hello_world.py    cwd=${CURDIR}    shell=True
     #.rc  # Retorna o código de retorno do processo
     #.stdout  # Retorna a saída padrão do processo
     #.stderr  # Retorna a saída de erro do processo
     #.kill()  # Encerra o processo
     # Log    PID do meu processo: ${MEU_PROCESSO.pid}e
-
+    
+    ${file}    Monta path do arquivo    hello_world.py
+    ## Inicia o processo e espera pelo seu término
+    ${MEU_PROCESSO}     Run Process     python   ${file}    cwd=${CURDIR}    shell=True
+  
     Log    Resultado da execução (sucesso/falha): ${MEU_PROCESSO.rc} 
     Log    Saída da execução: ${MEU_PROCESSO.stdout}
     Verifica sucesso na execução do processo      ${MEU_PROCESSO}
 
 Execute um script e aguarde ele finalizar com falha
+    ${file}    Monta path do arquivo    hello_world_fail.py
     ## Inicia o processo e espera pelo seu término
-    ${MEU_PROCESSO}     Run Process     python   hello_world_fail.py
+    ${MEU_PROCESSO}     Run Process     python   ${file} 
     Log    Resultado da execução (sucesso/falha): ${MEU_PROCESSO.rc}
     Log    Saída da execução: ${MEU_PROCESSO.stdout}
     Log    Falha da execução: ${MEU_PROCESSO.stderr}
