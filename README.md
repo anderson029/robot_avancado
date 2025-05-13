@@ -1,5 +1,5 @@
 # robot_avancado
-Estudo e automação de testes com robot framework avançado
+Estudo e automação de testes com robot framework
 
 
 Formas de executar o projeto
