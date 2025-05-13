@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2 (Python 3.13.3 on win32)" generated="2025-05-13T10:45:27.393968" rpa="false" schemaversion="5">
+<suite id="s1" name="myLibrary" source="c:\automation\robot_avancado\tests\myLibrary.robot">
+<test id="s1-t1" name="Teste de conversão de arquivo para HASH sha256" line="10">
+<kw name="Monta path do arquivo" owner="library_database">
+<kw name="Join Path" owner="OperatingSystem">
+<msg time="2025-05-13T10:45:27.509130" level="INFO">${caminho_correto} = c:\automation\robot_avancado\my_files\arquivo_PDF.pdf</msg>
+<var>${caminho_correto}</var>
+<arg>c:\\automation\\robot_avancado\\keywords\\database_Library</arg>
+<arg>../..</arg>
+<arg>my_files</arg>
+<arg>${ARQUIVO}</arg>
+<doc>Joins the given path part(s) to the given base path.</doc>
+<status status="PASS" start="2025-05-13T10:45:27.508664" elapsed="0.005357"/>
+</kw>
+<kw name="Normalize Path" owner="OperatingSystem">
+<msg time="2025-05-13T10:45:27.515460" level="INFO">${caminho_correto} = c:\automation\robot_avancado\my_files\arquivo_PDF.pdf</msg>
+<var>${caminho_correto}</var>
+<arg>${caminho_correto}</arg>
+<doc>Normalizes the given path.</doc>
+<status status="PASS" start="2025-05-13T10:45:27.514648" elapsed="0.001190"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-13T10:45:27.516825" level="INFO">Caminho final: c:\automation\robot_avancado\my_files\arquivo_PDF.pdf</msg>
+<arg>Caminho final: ${caminho_correto}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-13T10:45:27.516332" elapsed="0.000751"/>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-05-13T10:45:27.518157" level="INFO" html="true">File '&lt;a href="file://c:\automation\robot_avancado\my_files\arquivo_PDF.pdf"&gt;c:\automation\robot_avancado\my_files\arquivo_PDF.pdf&lt;/a&gt;' exists.</msg>
+<arg>${caminho_correto}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-05-13T10:45:27.517371" elapsed="0.001144"/>
+</kw>
+<return>
+<value>${caminho_correto}</value>
+<status status="PASS" start="2025-05-13T10:45:27.518750" elapsed="0.000249"/>
+</return>
+<msg time="2025-05-13T10:45:27.519352" level="INFO">${file} = c:\automation\robot_avancado\my_files\arquivo_PDF.pdf</msg>
+<var>${file}</var>
+<arg>arquivo_PDF.pdf</arg>
+<status status="PASS" start="2025-05-13T10:45:27.506943" elapsed="0.013489"/>
+</kw>
+<kw name="Converter o arquivo &quot;${file}&quot; para sha256" source_name="Converter o arquivo &quot;${FILE}&quot; para sha256">
+<kw name="Gerar Hash Arquivo" owner="geradorHash">
+<msg time="2025-05-13T10:45:27.524005" level="INFO">Arquivo: c:\automation\robot_avancado\my_files\arquivo_PDF.pdf
+Hash gerado: d9021489da6cd18be2f0954475524f1c2d37628e127a1e23ee9941e133dcbc7f</msg>
+<msg time="2025-05-13T10:45:27.524516" level="INFO">${CONTEUDO_HASH} = d9021489da6cd18be2f0954475524f1c2d37628e127a1e23ee9941e133dcbc7f</msg>
+<var>${CONTEUDO_HASH}</var>
+<arg>${FILE}</arg>
+<status status="PASS" start="2025-05-13T10:45:27.522461" elapsed="0.002316"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-13T10:45:27.525501" level="INFO">Converteu com arquivo: d9021489da6cd18be2f0954475524f1c2d37628e127a1e23ee9941e133dcbc7f</msg>
+<arg>Converteu com arquivo: ${CONTEUDO_HASH}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-13T10:45:27.525132" elapsed="0.000588"/>
+</kw>
+<status status="PASS" start="2025-05-13T10:45:27.521475" elapsed="0.004424"/>
+</kw>
+<status status="PASS" start="2025-05-13T10:45:27.505209" elapsed="0.021419"/>
+</test>
+<status status="PASS" start="2025-05-13T10:45:27.407092" elapsed="0.122020"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="myLibrary" id="s1" pass="1" fail="0" skip="0">myLibrary</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
